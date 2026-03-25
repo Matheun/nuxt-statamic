@@ -1,5 +1,5 @@
 {
-  "name": "@matheun/nuxt-statamic",
+  "name": "nuxtjs-statamic",
   "version": "1.0.0",
   "description": "Nuxt Statamic Module",
   "repository": "https://github.com/Matheun/nuxt-statamic",
