@@ -1,0 +1,21 @@
+{{#if noteGroups}}
+{{#each noteGroups}}
+
+{{#if (eq title "BREAKING CHANGE")}}
+### 🚨 Breaking Change
+{{/if}}
+{{#if (eq title "BREAKING CHANGES")}}
+### 🚨 Breaking Changes
+{{/if}}
+{{#if (eq title "BREAKING")}}
+### 🚨 Breaking Changes
+{{/if}}
+{{#else}}
+### {{title}}
+{{/else}}
+
+{{#each notes}}
+* {{#if commit.scope}}**{{commit.scope}}:** {{/if}}{{text}}
+{{/each}}
+{{/each}}
+{{/if}}
