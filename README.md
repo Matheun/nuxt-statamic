@@ -7,14 +7,17 @@ Find and replace all on all files (CMD+SHIFT+F):
 - Description: My new Nuxt module
 -->
 
-# My Module
+# Nuxt Statamic
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
 
-My new Nuxt module for doing amazing things.
+> [!NOTE]
+> I am currently working on the module, it should be ready for early usage within the next few weeks (max 4). This is a release to claim the package name on npm.
+
+The Statamic module integrates Statamic CMS into your project using custom composables, utilities and routes. 
 
 - [✨ &nbsp;Release Notes](/CHANGELOG.md)
 <!-- - [🏀 Online playground](https://stackblitz.com/github/your-org/my-module?file=playground%2Fapp.vue) -->
@@ -23,24 +26,29 @@ My new Nuxt module for doing amazing things.
 ## Features
 
 <!-- Highlight some of the features your module provide here -->
-- ⛰ &nbsp;Foo
-- 🚠 &nbsp;Bar
-- 🌲 &nbsp;Baz
+- Full TypeScript support with proper type definitions
+- Custom composables for interacting with the Statamic API
+- Automatic redirect handling (required plugin)
+- I18n support
+- SEO support (required plugin)
+- Multi-tenancy support (coming soon)
 
 ## Quick Setup
 
-Install the module to your Nuxt application with one command:
+You can install the module with your favorite package manager:
 
 ```bash
-npx nuxt module add my-module
+pnpm add nuxtjs-statamic
 ```
 
-That's it! You can now use My Module in your Nuxt app ✨
+That's it! You can now use Nuxt Statamic in your Nuxt app
 
 
 ## Contribution
 
-<details>
+Will be added soon.
+
+<!-- <details>
   <summary>Local development</summary>
   
   ```bash
@@ -67,7 +75,7 @@ That's it! You can now use My Module in your Nuxt app ✨
   npm run release
   ```
 
-</details>
+</details> -->
 
 
 <!-- Badges -->
