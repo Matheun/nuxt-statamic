@@ -1,3 +1,99 @@
 {
-  "eslint.useFlatConfig": true
+    // Disable the default formatter (e.g., Prettier or VSCode's built-in formatter)
+    // Use ESLint as the primary formatter instead
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    // Prevent VSCode from formatting on save automatically
+    // This avoids conflicts when using ESLint for formatting
+    "editor.formatOnSave": false,
+    // Automatically apply ESLint fixes when saving a file
+    // Only works if the ESLint rule is explicitly fixable
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "never",
+        "source.fixAll.eslint": "explicit",
+        "source.organizeImports": "never",
+        "source.fixAll.markdownlint": "explicit"
+    },
+    // Enable support for ESLint Flat Config (eslint.config.js, used in ESLint v9+)
+    "eslint.useFlatConfig": true,
+    // Resolve ESLint config per workspace package (monorepo support)
+    "eslint.workingDirectories": [
+        {
+            "mode": "auto"
+        }
+    ],
+    // Silent the stylistic rules in you IDE, but still auto fix them
+    "eslint.rules.customizations": [
+        {
+            "rule": "style/*",
+            "severity": "off"
+        },
+        {
+            "rule": "format/*",
+            "severity": "off"
+        },
+        {
+            "rule": "*-indent",
+            "severity": "off"
+        },
+        {
+            "rule": "*-spacing",
+            "severity": "off"
+        },
+        {
+            "rule": "*-spaces",
+            "severity": "off"
+        },
+        {
+            "rule": "*-order",
+            "severity": "off"
+        },
+        {
+            "rule": "*-dangle",
+            "severity": "off"
+        },
+        {
+            "rule": "*-newline",
+            "severity": "off"
+        },
+        {
+            "rule": "*quotes",
+            "severity": "off"
+        },
+        {
+            "rule": "*semi",
+            "severity": "off"
+        }
+    ],
+    // Associate all .css files with Tailwind CSS for better syntax highlighting
+    "files.associations": {
+        "*.css": "tailwindcss"
+    },
+    // Enable quick suggestions (autocomplete) within string literals
+    // Useful for translation keys, template strings, etc.
+    "editor.quickSuggestions": {
+        "strings": "on"
+    },
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "vue",
+        "html",
+        "markdown",
+        "json",
+        "jsonc",
+        "json5",
+        "yaml",
+        "toml",
+        "xml",
+        "gql",
+        "graphql",
+        "astro",
+        "css",
+        "less",
+        "scss",
+        "pcss",
+        "postcss"
+    ]
 }

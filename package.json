@@ -1,80 +1,98 @@
 {
-  "name": "nuxtjs-statamic",
-  "version": "1.0.2",
-  "description": "Nuxt Statamic Module",
-  "repository": "https://github.com/Matheun/nuxt-statamic",
-  "license": "MIT",
-  "type": "module",
-  "contributors": [
-    {
-      "name": "Matheun Struik",
-      "url": "https://github.com/Matheun"
+    "name": "nuxtjs-statamic",
+    "type": "module",
+    "version": "1.0.2",
+    "description": "Nuxt Statamic Module",
+    "contributors": [
+        {
+            "name": "Matheun Struik",
+            "url": "https://github.com/Matheun"
+        }
+    ],
+    "license": "MIT",
+    "repository": "https://github.com/Matheun/nuxtjs-statamic",
+    "keywords": [
+        "nuxt",
+        "statamic",
+        "api",
+        "nuxt-module"
+    ],
+    "exports": {
+        ".": {
+            "types": "./dist/types.d.mts",
+            "style": "./dist/runtime/index.css",
+            "import": "./dist/module.mjs"
+        },
+        "./runtime/*": "./dist/runtime/*",
+        "./composables/*": "./dist/runtime/composables/*"
+    },
+    "main": "./dist/module.mjs",
+    "typesVersions": {
+        "*": {
+            ".": [
+                "./dist/types.d.mts"
+            ],
+            "runtime/*": [
+                "./dist/runtime/*"
+            ],
+            "composables/*": [
+                "./dist/runtime/composables/*"
+            ]
+        }
+    },
+    "files": [
+        "dist"
+    ],
+    "engines": {
+        "node": ">=22",
+        "pnpm": ">=10.28"
+    },
+    "scripts": {
+        "clean": "find . -type d \\( -name 'node_modules' -o -name '.nuxt' -o -name '.output' -o -name 'dist' \\) -prune -exec rm -rf {} +",
+        "prepack": "nuxt-module-build build",
+        "dev": "npm run dev:prepare && nuxt dev playground",
+        "dev:build": "nuxt build playground",
+        "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxt prepare playground",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "test": "vitest run",
+        "test:watch": "vitest watch",
+        "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit",
+        "release": "release-it --git.requireBranch=main --config .release-it.ts",
+        "release:beta": "release-it --git.requireBranch=preview --preRelease=beta --config .release-it.ts",
+        "release:dry-run": "release-it --dry-run --config .release-it.ts"
+    },
+    "dependencies": {
+        "@nuxt/kit": "^4.4.2",
+        "consola": "^3.4.2",
+        "defu": "^6.1.4",
+        "ohash": "^2.0.11",
+        "qs-esm": "^7.0.3",
+        "ufo": "^1.6.3"
+    },
+    "devDependencies": {
+        "@antfu/eslint-config": "^7.7.3",
+        "@commitlint/cli": "^20.5.0",
+        "@commitlint/config-conventional": "^20.5.0",
+        "@nuxt/devtools": "^3.2.4",
+        "@nuxt/eslint-config": "^1.15.2",
+        "@nuxt/module-builder": "^1.0.2",
+        "@nuxt/schema": "^4.4.2",
+        "@nuxt/test-utils": "^4.0.0",
+        "@release-it/conventional-changelog": "^10.0.6",
+        "@types/node": "latest",
+        "changelogen": "^0.6.2",
+        "conventional-changelog-conventionalcommits": "^9.3.0",
+        "cz-conventional-changelog": "^3.3.0",
+        "eslint": "^10.1.0",
+        "eslint-plugin-format": "^2.0.1",
+        "husky": "^9.1.7",
+        "nuxt": "^4.4.2",
+        "typescript": "~5.9.3",
+        "vitest": "^4.1.1",
+        "vue-tsc": "^3.2.6"
+    },
+    "resolutions": {
+        "conventional-changelog-conventionalcommits": "8.0.0"
     }
-  ],
-  "exports": {
-    ".": {
-      "types": "./dist/types.d.mts",
-      "import": "./dist/module.mjs"
-    }
-  },
-  "main": "./dist/module.mjs",
-  "typesVersions": {
-    "*": {
-      ".": [
-        "./dist/types.d.mts"
-      ]
-    }
-  },
-  "files": [
-    "dist"
-  ],
-  "keywords": [
-    "nuxt",
-    "statamic",
-    "api",
-    "nuxt-module"
-  ],
-  "engines": {
-    "node": ">=22",
-    "pnpm": ">=10.28"
-  },
-  "scripts": {
-    "prepack": "nuxt-module-build build",
-    "dev": "npm run dev:prepare && nuxt dev playground",
-    "dev:build": "nuxt build playground",
-    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxt prepare playground",
-    "lint": "eslint .",
-    "test": "vitest run",
-    "test:watch": "vitest watch",
-    "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit",
-    "release": "release-it --git.requireBranch=main --config .release-it.ts",
-    "release:beta": "release-it --git.requireBranch=preview --preRelease=beta --config .release-it.ts",
-    "release:dry-run": "release-it --dry-run --config .release-it.ts"
-  },
-  "dependencies": {
-    "@nuxt/kit": "^4.4.2"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^20.5.0",
-    "@commitlint/config-conventional": "^20.5.0",
-    "@nuxt/devtools": "^3.2.4",
-    "@nuxt/eslint-config": "^1.15.2",
-    "@nuxt/module-builder": "^1.0.2",
-    "@nuxt/schema": "^4.4.2",
-    "@nuxt/test-utils": "^4.0.0",
-    "@release-it/conventional-changelog": "^10.0.6",
-    "@types/node": "latest",
-    "changelogen": "^0.6.2",
-    "conventional-changelog-conventionalcommits": "^9.3.0",
-    "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^10.1.0",
-    "husky": "^9.1.7",
-    "nuxt": "^4.4.2",
-    "typescript": "~5.9.3",
-    "vitest": "^4.1.1",
-    "vue-tsc": "^3.2.6"
-  },
-  "resolutions": {
-    "conventional-changelog-conventionalcommits": "8.0.0"
-  }
 }

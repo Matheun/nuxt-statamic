@@ -17,7 +17,7 @@ Find and replace all on all files (CMD+SHIFT+F):
 > [!NOTE]
 > I am currently working on the module, it should be ready for early usage within the next few weeks (max 4). This is a release to claim the package name on npm.
 
-The Statamic module integrates Statamic CMS into your project using custom composables, utilities and routes. 
+The Statamic module integrates Statamic CMS into your project using custom composables, utilities and routes.
 
 - [✨ &nbsp;Release Notes](/CHANGELOG.md)
 <!-- - [🏀 Online playground](https://stackblitz.com/github/your-org/my-module?file=playground%2Fapp.vue) -->
@@ -50,27 +50,27 @@ Will be added soon.
 
 <!-- <details>
   <summary>Local development</summary>
-  
+
   ```bash
   # Install dependencies
   npm install
-  
+
   # Generate type stubs
   npm run dev:prepare
-  
+
   # Develop with the playground
   npm run dev
-  
+
   # Build the playground
   npm run dev:build
-  
+
   # Run ESLint
   npm run lint
-  
+
   # Run Vitest
   npm run test
   npm run test:watch
-  
+
   # Release new version
   npm run release
   ```
